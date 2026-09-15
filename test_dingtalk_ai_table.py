@@ -1398,7 +1398,7 @@ class TestFieldManagement(unittest.TestCase):
     def test_delete_field(self, MockNotable, _mock_token):
         """删除字段"""
         mock_cli = MockNotable.return_value
-        mock_cli.delete_field_with_options.return_value = _make_body if False else _make_response(_make_body(success=True))
+        mock_cli.delete_field_with_options.return_value = _make_response(_make_body(success=True))
         api = self._make_api()
         ok = api.delete_field("fld_001")
         self.assertTrue(ok)
