@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dingtalk-ai-table-crud"
+version = "1.0.0"
+description = "钉钉 AI 表格（Notable）服务端增删查改 Python 封装：记录/字段/数据表 CRUD，支持同步与异步、自动重试、批量自动拆分、条件筛选与查重新增，基于官方 alibabacloud-dingtalk SDK。"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "EdgeForge789" }]
+keywords = ["dingtalk", "dingtalk-ai-table", "notable", "钉钉", "AI表格", "crud"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Office/Business",
+]
+# 仅声明直接依赖；其余为 alibabacloud-dingtalk 的传递依赖，会由 pip 自动解析安装。
+# 初始化时会强制校验 alibabacloud-dingtalk >= 2.2.57。
+# 如需完全复现已验证的锁定依赖版本，可改用项目内 requirements.txt。
+dependencies = [
+    "alibabacloud-dingtalk>=2.2.57",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/EdgeForge789/dingtalk-ai-table-crud"
+Repository = "https://github.com/EdgeForge789/dingtalk-ai-table-crud"
+Issues = "https://github.com/EdgeForge789/dingtalk-ai-table-crud/issues"
+
+# 本项目为单文件模块（dingtalk_ai_table.py），用 py-modules 声明，无需包目录。
+[tool.setuptools]
+py-modules = ["dingtalk_ai_table"]
