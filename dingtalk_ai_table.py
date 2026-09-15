@@ -104,7 +104,7 @@ def load_config(config_path: Optional[str] = None) -> Dict[str, str]:
     parser = configparser.ConfigParser()
     # configparser 需要一个 section，给无 section 的纯 key=value 文件补一个虚拟段
     with open(config_path, "r", encoding="utf-8") as f:
-        parser.read_string("[DEFAULT]\\n" + f.read())
+        parser.read_string("[DEFAULT]\n" + f.read())
 
     cfg = {k: v.strip() for k, v in parser["DEFAULT"].items()}
     return cfg
